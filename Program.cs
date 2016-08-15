@@ -6,7 +6,7 @@ using Utilities.WebClients;
 using Utilities.Helpers;
 
 
-namespace ConsoleApplication
+namespace ConsoleApplication //Main Namespace.
 {
     #region ^Start Program for the Application to RUN
     public class Program

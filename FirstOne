@@ -1,1 +1,53 @@
 #This is just an text file.
+#How to Install VS Code into MAC OS
+
+NOTE: Every time you change the references , we need to do 
+    1> dotnet restore
+    2> dotnet run
+
+dotnet installation path : 
+    /usr/local/share/dotnet/
+    usr/local/share/dotnet/bin/dotnet
+    /usr/local/share/dotnet/bin/csc
+
+1. Download Visual Studio Code.
+2. START+SHIFT+P => gives command window
+    a) Shell Command! lnstall 'code' command in PATH
+    b) Debug: Download .NET Core Debugger
+3. Try downloading Extensions for C# from Marketplace. (@popular will give all required extensions)
+
+
+2. Need to install Hebrew (which is nothing but brew - from http://brew.sh/)
+    a) brew update
+    b) brew reinstall mono
+    c) /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    d) brew install wget
+    -- Install openssl --
+    e) brew install openssl
+    f)brew link --force openssl
+
+5. Install dotnet CLI from 
+    https://github.com/dotnet/cli
+    https://github.com/dotnet/coreclr
+
+6. Roslyn Compiler.
+    nuget install Microsoft.Net.Compilers   # Install C# and VB compilers
+    nuget install Microsoft.CodeAnalysis    # Install Language APIs and Services
+    It may ask for NUGET update
+     >   sudo chmod 755 /usr/local/bin/nuget
+     >
+
+/*******/
+To put references to any other system dll
+1> open project.json
+2> under "frameworks" -> "dependencies" -> you can reference it like wise
+    "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0"
+        },
+        "System.Xml.XmlSerializer": "4.0.11-beta-23516"    //This is the new reference.
+      },
+      "imports": "dnxcore50"  

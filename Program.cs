@@ -16,7 +16,7 @@ namespace ConsoleApplication
             //WriteSomething();
             //TryWeb();
             Mathamatics();
-            SerializeIt();
+            SerializeAndDeserializeIt();
             //Console.ReadLine();
         }
 
@@ -48,13 +48,16 @@ namespace ConsoleApplication
             Console.WriteLine("SAATVIK SANJEEV MAHUYA");
         }
 
-        public static void SerializeIt()
+        public static void SerializeAndDeserializeIt()
         {
             var cls = new ToBeSerialized( "First Property 1", 5000 );
 
             var serial = Serializer.Serialize( cls );
 
             Console.WriteLine(serial);
+
+            cls = Serializer.DeSerialize<ToBeSerialized>(serial);
+            Console.WriteLine(cls.ToString());
         }
     }
     #endregion ~END OF Start Program for the application to run.
@@ -76,6 +79,11 @@ namespace ConsoleApplication
         public string firstprop {get; set;}
         [XmlIgnore]
         public int secondprop {get; set;}
+
+        public override string ToString()
+        {
+            return $"{Environment.NewLine}First Property = {this.firstprop}";
+        }
     }
     
 }

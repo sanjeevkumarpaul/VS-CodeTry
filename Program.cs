@@ -5,6 +5,8 @@ using Utilities.Extensions;
 using Utilities.WebClients;
 using Utilities.Helpers;
 
+using Newtonsoft.Json;
+
 
 namespace ConsoleApplication //Main Namespace.
 {
@@ -52,12 +54,26 @@ namespace ConsoleApplication //Main Namespace.
         {
             var cls = new ToBeSerialized( "First Property 1", 5000 );
 
-            var serial = Serializer.Serialize( cls );
+            Console.WriteLine("VIA XML SERIALIZATION - DESERIALIZATION");
 
+            Console.WriteLine($"{Environment.NewLine} 1. Serialized ... ");
+            var serial = Serializer.Serialize( cls );
             Console.WriteLine(serial);
 
+            Console.WriteLine($"{Environment.NewLine} 2. De-Serialized ... ");
             cls = Serializer.DeSerialize<ToBeSerialized>(serial);
             Console.WriteLine(cls.ToString());
+
+            Console.WriteLine("VIA NEWTON JSON SERIALIZATION - DESERIALIZATION");
+
+            Console.WriteLine($"{Environment.NewLine} 3. Serialized ... ");
+            serial = Serializer.JScriptSerialize( cls );
+            Console.WriteLine( serial );
+
+            Console.WriteLine($"{Environment.NewLine} 4. De-Serialized ... ");
+            cls = Serializer.JScriptDeSerialize<ToBeSerialized>( serial );
+            Console.WriteLine(cls.ToString());
+
         }
     }
     #endregion ~END OF Start Program for the application to run.
@@ -78,6 +94,7 @@ namespace ConsoleApplication //Main Namespace.
         [XmlElement(ElementName="First-Always-Prop")]
         public string firstprop {get; set;}
         [XmlIgnore]
+        [JsonIgnore]
         public int secondprop {get; set;}
 
         public override string ToString()

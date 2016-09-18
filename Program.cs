@@ -7,6 +7,7 @@ using Utilities.Helpers;
 
 using Newtonsoft.Json;
 
+using AvenueCodeTest;
 
 namespace ConsoleApplication //Main Namespace.
 {
@@ -17,9 +18,20 @@ namespace ConsoleApplication //Main Namespace.
         {
             //WriteSomething();
             //TryWeb();
-            Mathamatics();
-            SerializeAndDeserializeIt();
+            //Mathamatics();
+            //SerializeAndDeserializeIt();
+
+            AvenueCodeTestTrials();
+
             //Console.ReadLine();
+        }
+
+        public static void AvenueCodeTestTrials()
+        {
+            DataStruct.Try();
+            MagicForest.Try();
+            Friends.Try();
+
         }
 
         public static void WriteSomething()

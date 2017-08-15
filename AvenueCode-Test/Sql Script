@@ -1,0 +1,61 @@
+
+Use DockerPersonal
+GO
+
+
+Select Id, Name, Convert( Varchar(20), [Current], 108 ) InDate from dbo.MyData;
+GO
+
+Select K.Department, D.Name from MyKeys K Inner Join MyData D On K.MyDataId = D.id Where K.MyDataId = 2;
+
+-- select * from sys.databases;
+-- GO
+
+-- Select * from INFORMATION_SCHEMA.TABLES;
+-- GO
+
+-- Create DATABASE DockerPersonal
+
+-- Use DockerPersonal
+
+
+-- Create Table MyData 
+-- (   Id INTEGER IDENTITY(1,1) NOT NULL Primary KEY,
+--     Name Varchar(100),
+--     [Current] DateTime Default GetDate()
+-- )
+
+-- Create Table MyKeys
+-- ( 
+--    Id INTEGER IDENTITY(1,1) NOT NULL Primary KEY,
+--    MyDataId INTEGER REFERENCES MyData(Id) NOT NULL,
+--    Department Varchar(20) NOT NULL,
+--    [Current] DateTime Default GetDate()
+-- )
+/*
+Insert Into MyData(Name) values('Sanj');
+Insert Into MyData(Name) values('Jhon');
+Insert Into MyData(Name) values('Saat');
+Insert Into MyData(Name) values('Mon');
+
+
+Insert Into MyKeys (MyDataId, Department) Values(1, 'Princeston');
+Insert Into MyKeys (MyDataId, Department) Values(1, 'Edison');
+Insert Into MyKeys (MyDataId, Department) Values(1, 'Trenton');
+Insert Into MyKeys (MyDataId, Department) Values(1, 'Brunswick');
+
+Insert Into MyKeys (MyDataId, Department) Values(2, 'Kolkata');
+Insert Into MyKeys (MyDataId, Department) Values(2, 'Guhati');
+Insert Into MyKeys (MyDataId, Department) Values(2, 'Bokaro');
+Insert Into MyKeys (MyDataId, Department) Values(2, 'Bhubhuneswar');
+
+Insert Into MyKeys (MyDataId, Department) Values(3, 'England');
+Insert Into MyKeys (MyDataId, Department) Values(3, 'Scotland');
+Insert Into MyKeys (MyDataId, Department) Values(3, 'Holland');
+Insert Into MyKeys (MyDataId, Department) Values(3, 'Poland');
+
+Insert Into MyKeys (MyDataId, Department) Values(4, 'Brisbane');
+Insert Into MyKeys (MyDataId, Department) Values(4, 'Adelade');
+Insert Into MyKeys (MyDataId, Department) Values(4, 'Sidney');
+Insert Into MyKeys (MyDataId, Department) Values(4, 'Melbourn');
+*/

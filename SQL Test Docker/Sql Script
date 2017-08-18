@@ -6,7 +6,7 @@ GO
 Select Id, Name, Convert( Varchar(20), [Current], 108 ) InDate from dbo.MyData;
 GO
 
-Select K.Department, D.Name from MyKeys K Inner Join MyData D On K.MyDataId = D.id Where K.MyDataId = 2;
+Select K.Department, D.Name from MyKeys K Inner Join MyData D On K.MyDataId = D.id Where K.MyDataId = 4;
 
 -- select * from sys.databases;
 -- GO

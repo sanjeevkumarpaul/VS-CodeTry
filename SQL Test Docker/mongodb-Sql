@@ -1,0 +1,3 @@
+-- docker run --name my-mongo -d mongo  --auth
+-- docker exec -it my-mongo mongo admin
+-- docker run --name my-app --link my-mongo:mongo -d application-that-uses-mongo
